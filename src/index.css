@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #f3efe6;
+    color: #0d0d0d;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-image: 
+      radial-gradient(#b8b09f 0.65px, transparent 0.65px),
+      radial-gradient(#d4cbba 0.65px, #f3efe6 0.65px);
+    background-size: 26px 26px;
+    background-position: 0 0, 13px 13px;
+  }
+}
+
+/* Tipografia vertical japonesa */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.vertical-mixed {
+  writing-mode: vertical-rl;
+}
+
+/* Ruído sutil e textura washi */
+.washi-card {
+  background: rgba(247, 244, 237, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(34, 33, 32, 0.12);
+}
+
+.washi-inset {
+  background: #0d0d0d;
+  color: #f7f4ed;
+  border: 1px solid rgba(139, 14, 14, 0.3);
+}
+
+/* Selo tradicional japonês (Hanko) */
+.hanko-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8b0e0e;
+  color: #f7f4ed;
+  border: 2px solid #5a0707;
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 2px 8px rgba(139, 14, 14, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hanko-seal:hover {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 4px 14px rgba(139, 14, 14, 0.5);
+}
+
+/* Shimmer de alta conversão */
+.shimmer-button {
+  background: linear-gradient(110deg, #8b0e0e 0%, #a01414 40%, #c41e1e 50%, #a01414 60%, #8b0e0e 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* Efeito de granulação de filme sobre a arte */
+.film-grain {
+  position: relative;
+}
+.film-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.045'/%3E%3C/svg%3E");
+}
